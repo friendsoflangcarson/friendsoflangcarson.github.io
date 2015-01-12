@@ -3,19 +3,136 @@
   <head>
     <title>Friends of Lang-Carson Park</title>
     <link rel="stylesheet" href="normalize.css">
+    <link href='http://fonts.googleapis.com/css?family=Oswald:400,700' rel='stylesheet' type='text/css'>
     <style>
+      * { box-sizing: border-box; }
+      body {
+        font-family: 'Oswald', sans-serif;
+        font-size: 16pt;
+        overflow-x: hidden;
+      }
       section {
-        height: 100vh;
+        min-height: 100vh;
         width: 100vw;
+        padding: 4em;
+      }
+      #top {
         display: flex;
         justify-content: center;
         align-items: center;
       }
+      @media (max-width: 1024px) {
+        #top {
+          flex-direction: column;
+        }
+        section {
+          padding: 2em;
+        }
+      }
+      #who {
+        background-color: #fcda4d;
+      }
+      #what {
+        background-color: #dab02e;
+      }
+      #how {
+        background-color: #2a8d5e;
+      }
+      .navigation {
+        margin-top: 2em;
+      }
+      .menu {
+        list-style: none;
+        display: inline-flex;
+        flex-direction: column;
+      }
+      .menu-item {
+        padding: 0.5em 1em;
+      }
+      .menu-item a, .menu-item a:visited {
+        border-bottom: 0;
+      }
+      big {
+        font-size: 4em;
+      }
+      a, a:active, a:hover, a:visited {
+        text-decoration: none;
+        color: #000;
+        border-bottom: 1px dotted black;
+      }
+
+      h1 {
+        background-color: rgba(0,0,0,0.2);
+        padding: 0.2em;
+        display: inline-block;
+      }
     </style>
   </head>
   <body>
-    <section>
-      <a href="https://www.facebook.com/groups/friendoflangcarsonpark/"><img src="logo.svg"></a>
+    <section id="top">
+      <div>
+        <img src="logo.svg">
+        <style>#forkongithub a{box-sizing: content-box;background:#3a5795;color:#fff;text-decoration:none;font-family:arial,sans-serif;text-align:center;font-weight:bold;padding:5px 40px;font-size:1rem;line-height:2rem;position:relative;transition:0.5s;}#forkongithub a:hover{background:#c11;color:#fff;}#forkongithub a::before,#forkongithub a::after{content:"";width:100%;display:block;position:absolute;top:1px;left:0;height:1px;background:#fff;}#forkongithub a::after{bottom:1px;top:auto;}@media screen and (min-width:800px){#forkongithub{position:absolute;display:block;top:0;right:0;width:200px;overflow:hidden;height:200px;z-index:9999;}#forkongithub a{width:200px;position:absolute;top:60px;right:-60px;transform:rotate(45deg);-webkit-transform:rotate(45deg);-ms-transform:rotate(45deg);-moz-transform:rotate(45deg);-o-transform:rotate(45deg);box-shadow:4px 4px 10px rgba(0,0,0,0.8);}}</style><span id="forkongithub"><a href="http://www.facebook.com/groups/friendoflangcarson">Like us on Facebook!</a></span>
+      </div>
+
+      <div class="navigation">
+        <ul class="menu">
+          <li class="menu-item"><a href="#who"><big>WHO</big> we are</a></li>
+          <li class="menu-item"><a href="#what"><big>WHAT</big> we do</a></li>
+          <li class="menu-item"><a href="#how"><big>HOW</big> you can help</a></li>
+          <li class="menu-item"><a href="http://langcarson.wordpress.com"><big>READ</big> the blog</a></li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="who">
+      <h1>The FOLCs</h1>
+      <h2>The Officers</h2>
+      <dl class="friends">
+        <dt class="chair">Chairperson</dt>
+        <dd>Amber Keen</dd>
+        <dt class="chair">Co-Chair</dt>
+        <dd>Fredalyn Fraiser</dd>
+        <dt class="tresure">Treasurer</dt>
+        <dd>Will Moore</dd>
+        <dt class="secretary">Secretary</dt>
+        <dd>Scott Trinh</dd>
+      </dl>
+      <h2>The Board</h2>
+      <ul class="friends">
+        <li>John Gianoulidis</li>
+      </ul>
+      <h2><a href="http://www.parkpride.org/">Park Pride</a></h2>
+      <p>Friends of Lang-Carson is a fiscal partner with Park Pride, an Atlanta non-profit promoting parks and greenspaces all of Atlanta since 1989.</p>
+    </section>
+
+    <section id="what">
+      <h1>Our Mission</h1>
+      <p>Friends of Lang-Carson Park (FOLC) is a group of neighborhood volunteers from Reynoldstown and surrounding communities who are committed to implementing the community's vision for the park. The group organized in the summer of 2013 with the goal of connecting the <a href="http://www.atlantaga.gov/index.aspx?page=22">City of Atlanta Department of Parks and Recreation</a>, <a href="http://www.parkpride.org">Park Pride</a>, and <a href="http://beltline.org">Atlanta BeltLine</a> with the neighborhood. We recognize the significant opportunity Lang Carson presents due to its location as a future BeltLine Park. It is our goal to expand the current size of the park and develop the recreation center to meet the needs of the surrounding communities and neighbors based on the BeltLine master plan developed for the park. Friends of Lang-Carson's mission as an organization is to ensure the full potential of the park as a beautiful and safe place for all to enjoy.</p>
+      <h2>Where are we now?</h2>
+      <p>Currently, Reynoldstown has an extremely low amount of parkland in relation to the population of the area. According to national standards...</p>
+      <p>Lang-Carson Park includes a multi-use recreation center which means the park has a service area that reaches beyond Reynoldstown to neighborhoods such as Edgewood, Cabbagetown and East Atlanta.  Lang-Carson Park is classified as a community park, however, it is currently undersized for a community park and is actually functions more as a neighborhood park. More about the master plan...
+      <h2>The future of Lang-Carson Park</h2>
+      <p>As The BeltLine's Eastside Trail begins to make its way through Reynoldstown, Friends of Lang-Carson Park plans to develop Lang-Carson Park by following the BeltLine master plan. The Master Plan includes regrading and landscaping areas of the park to make it highly visible to the neighborhood and ADA compliant, updating the multi-use recreation center, and expanding the acreage of the park to meet the needs of the community.
+      <h2>Reference Material</h2>
+      <ul>
+        <li><a href="http://beltline.org/wp-content/uploads/2012/10/20120521_LangCarson_FINALREPORT.pdf">BeltLine Master Plan for Lang-Carson Park</a></li>
+        <li><a href="http://beltlineorg.wpengine.netdna-cdn.com/wp-content/uploads/2012/01/Atlanta-BeltLine_Subarea-4_Master-Plan.pdf">BeltLine Master Plan for all of Subarea #4</a></li>
+      </ul>
+    </section>
+
+    <section id="how">
+      <h1>How can you help?</h1>
+      <h2>Time</h2>
+      <h3>Volunteer in the park</h3>
+      <p>We host many community volunteer days! Check back often to find a list of upcoming volunteer events.</p>
+      <h3>Community Meetings</h3>
+      <p>The community at-large is welcome to attend our quarterly meeting to find out the latest news, future plans, and to meet neighbors and comrades.</p>
+      <h2>Talent</h2>
+      <p>We are always interested at helping neighbors focus their talents on helping their community through the park. Contact us today to get involved!</p>
+      <h2>Money</h2>
+      <p>Donations should be directed to Park Pride through their <a href="https://interland3.donorperfect.net/weblink/weblink.aspx?name=E195170&id=3">donation form</a>, designating their gift for Friends of Lang-Carson when prompted.</p>
+      <p>Does your company provide matching donations? Email the matching donations form to <a href="mailto:matching@parkpride.org">matching@parkpride.org</a>.</p>
     </section>
   </body>
 </html>
