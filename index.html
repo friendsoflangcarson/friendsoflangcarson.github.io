@@ -1,15 +1,21 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="folc">
   <head>
     <title>Friends of Lang-Carson Park</title>
     <link rel="stylesheet" href="normalize.css">
-    <link href='http://fonts.googleapis.com/css?family=Oswald:400,700' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Quattrocento:400,700' rel='stylesheet' type='text/css'>
+    <link href="http://fonts.googleapis.com/css?family=Oswald:400,700" rel='stylesheet' type='text/css'>
+    <script src="angular.min.js"></script>
     <style>
       * { box-sizing: border-box; }
       body {
-        font-family: 'Oswald', sans-serif;
+        font-family: 'Quattrocento', serif;
         font-size: 16pt;
+        line-height: 1.6;
         overflow-x: hidden;
+      }
+      h1, h2, h3, h4, h5, .navigation {
+        font-family: 'Oswald', sans-serif;
       }
       section {
         min-height: 100vh;
@@ -20,6 +26,10 @@
         display: flex;
         justify-content: center;
         align-items: center;
+        padding: 0;
+      }
+      .navigation {
+        margin: 0 1em;
       }
       @media (max-width: 1024px) {
         #top {
@@ -38,16 +48,15 @@
       #how {
         background-color: #2a8d5e;
       }
-      .navigation {
-        margin-top: 2em;
-      }
       .menu {
+        padding: 0;
+        margin: 0;
         list-style: none;
         display: inline-flex;
         flex-direction: column;
       }
       .menu-item {
-        padding: 0.5em 1em;
+        font
       }
       .menu-item a, .menu-item a:visited {
         border-bottom: 0;
@@ -60,11 +69,46 @@
         color: #000;
         border-bottom: 1px dotted black;
       }
-
       h1 {
         background-color: rgba(0,0,0,0.2);
         padding: 0.2em;
         display: inline-block;
+      }
+      .events {
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        padding: 0;
+        margin: 0;
+      }
+      .events__item {
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        margin: 1em;
+        border: 1px solid #EEE;
+        border-radius: 5px;
+      }
+      .date {
+        margin: 0;
+        font-weight: bold;
+        font-size: 1.5rem;
+        background-color: #EEE;
+        padding: 0.5em;
+      }
+      .summary {
+        margin: 0;
+        padding: 0.5em 1em;
+      }
+      .description {
+        padding: 0.5em 1em;
+      }
+      .map {
+        padding: 0 2em;
+      }
+      a.map__link, a.map__link:active, a.map__link:visited, a.map__link:hover {
+        display: inline-block;
+        color: #339;
       }
     </style>
   </head>
@@ -80,6 +124,7 @@
           <li class="menu-item"><a href="#who"><big>WHO</big> we are</a></li>
           <li class="menu-item"><a href="#what"><big>WHAT</big> we do</a></li>
           <li class="menu-item"><a href="#how"><big>HOW</big> you can help</a></li>
+          <li class="menu-item"><a href="#when"><big>WHEN</big> are we doing things?</a></li>
           <li class="menu-item"><a href="http://langcarson.wordpress.com"><big>READ</big> the blog</a></li>
         </ul>
       </div>
@@ -101,6 +146,7 @@
       <h2>The Board</h2>
       <ul class="friends">
         <li>John Gianoulidis</li>
+        <li>Amy Price</li>
       </ul>
       <h2><a href="http://www.parkpride.org/">Park Pride</a></h2>
       <p>Friends of Lang-Carson is a fiscal partner with Park Pride, an Atlanta non-profit promoting parks and greenspaces all of Atlanta since 1989.</p>
@@ -137,5 +183,23 @@
       <p>Donations should be directed to Park Pride through their <a href="https://interland3.donorperfect.net/weblink/weblink.aspx?name=E195170&id=3">donation form</a>, designating their gift for Friends of Lang-Carson when prompted.</p>
       <p>Does your company provide matching donations? Email the matching donations form to <a href="mailto:matching@parkpride.org">matching@parkpride.org</a>.</p>
     </section>
+
+    <section id="when" ng-controller="CalendarController as calendar">
+      <h1>When to see your Friends?</h1>
+      <h2>Park Hours</h2>
+      <p>Lang-Carson Park is open daily from 6:00 am until 11:00 pm.</p>
+      <h2>Friends of Lang-Carson Community Events</h2>
+      <ul class="events">
+        <li class="events__item" ng-repeat="event in calendar.events track by event.id">
+          <h3 class="date">{{::event.start.dateTime.calendar()}} - {{::event.end.dateTime.format('LT')}}</h3>
+          <h4 class="summary">{{::event.summary}}</h4>
+          <div class="map" ng-if="event.location">Map to: <a class="map__link" target="_new" ng-href="http://maps.google.com/?q={{::event.location}}">{{::event.location}}</a></div>
+          <p class="description">{{::event.description}}</p>
+        </li>
+      </ul>
+    </section>
+    <script src="moment.min.js"></script>
+    <script src="ramda.min.js"></script>
+    <script src="main.js"></script>
   </body>
 </html>
